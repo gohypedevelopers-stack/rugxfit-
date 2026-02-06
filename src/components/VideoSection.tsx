@@ -38,9 +38,9 @@ export default function VideoSection() {
                 </div>
             </div>
 
-            {/* Video Element - Full Bleed (No margins/padding) */}
-            <div className="relative w-full">
-                <div className="relative w-full aspect-video bg-white dark:bg-zinc-900 shadow-2xl">
+            {/* Video Element - With slight spacing */}
+            <div className="relative w-full px-4 md:px-12">
+                <div className="relative w-full aspect-video bg-white dark:bg-zinc-900 shadow-2xl rounded-3xl overflow-hidden">
                     <video
                         ref={videoRef}
                         className="w-full h-full object-cover"
