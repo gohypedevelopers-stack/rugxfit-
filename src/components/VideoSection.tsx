@@ -28,29 +28,17 @@ export default function VideoSection() {
     };
 
     return (
-        <section className="w-full bg-zinc-50 dark:bg-black py-24">
+        <section className="relative z-20 w-full bg-zinc-50 dark:bg-black py-24 border-t border-zinc-100 dark:border-zinc-800">
             <div className="max-w-7xl mx-auto px-6">
 
                 {/* Caption */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                    className="text-center mb-12"
-                >
+                <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-zinc-900 dark:text-white">
                         In the gym. In the zone.
                     </h2>
-                </motion.div>
+                </div>
 
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                    className="relative w-full aspect-video rounded-[2rem] overflow-hidden bg-white dark:bg-zinc-900 shadow-2xl border border-zinc-200 dark:border-zinc-800"
-                >
+                <div className="relative w-full aspect-video rounded-[2rem] overflow-hidden bg-white dark:bg-zinc-900 shadow-2xl border border-zinc-200 dark:border-zinc-800">
                     {/* Video Element */}
                     <video
                         ref={videoRef}
@@ -86,7 +74,7 @@ export default function VideoSection() {
                         </button>
                     </div>
 
-                </motion.div>
+                </div>
             </div>
         </section>
     );
