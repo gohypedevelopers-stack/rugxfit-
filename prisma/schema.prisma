@@ -1,0 +1,98 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  orders    Order[]
+}
+
+model Product {
+  id          Int              @id @default(autoincrement())
+  name        String
+  description String
+  image       String
+  features    String[]
+  variants    ProductVariant[]
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+}
+
+model ProductVariant {
+  id        Int         @id @default(autoincrement())
+  productId Int
+  product   Product     @relation(fields: [productId], references: [id])
+  name      String      // e.g., "300ml", "750ml", "Standard"
+  price     Decimal
+  stock     Int         @default(100)
+  orderItems OrderItem[]
+}
+
+model Order {
+  id            Int         @id @default(autoincrement())
+  userId        Int
+  user          User        @relation(fields: [userId], references: [id])
+  status        OrderStatus @default(pending)
+  total         Decimal
+  items         OrderItem[]
+  shipment      Shipment?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  
+  // Address snapshot
+  addressLine1  String
+  city          String
+  zip           String
+}
+
+model OrderItem {
+  id        Int            @id @default(autoincrement())
+  orderId   Int
+  order     Order          @relation(fields: [orderId], references: [id])
+  variantId Int
+  variant   ProductVariant @relation(fields: [variantId], references: [id])
+  quantity  Int
+  price     Decimal        // Snapshot of price at time of order
+}
+
+model Shipment {
+  id        Int              @id @default(autoincrement())
+  orderId   Int              @unique
+  order     Order            @relation(fields: [orderId], references: [id])
+  status    ShipmentStatus   @default(processing)
+  trackingNumber String?
+  history   ShipmentUpdate[]
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+}
+
+model ShipmentUpdate {
+  id         Int            @id @default(autoincrement())
+  shipmentId Int
+  shipment   Shipment       @relation(fields: [shipmentId], references: [id])
+  status     ShipmentStatus
+  note       String?
+  timestamp  DateTime       @default(now())
+}
+
+enum OrderStatus {
+  pending
+  paid
+  cancelled
+}
+
+enum ShipmentStatus {
+  processing
+  shipped
+  delivered
+}

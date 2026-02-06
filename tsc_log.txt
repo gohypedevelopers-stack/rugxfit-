@@ -1,0 +1,11 @@
+prisma/seed.ts(1,30): error TS2307: Cannot find module '@prisma/client' or its corresponding type declarations.
+src/app/api/v1/orders/[id]/route.ts(52,37): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/app/api/v1/orders/route.ts(23,56): error TS7006: Parameter 'tx' implicitly has an 'any' type.
+src/app/api/v1/orders/route.ts(70,37): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/app/api/v1/orders/route.ts(115,46): error TS7006: Parameter 'order' implicitly has an 'any' type.
+src/app/api/v1/orders/route.ts(118,37): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/app/api/v1/products/[id]/route.ts(27,45): error TS7006: Parameter 'variant' implicitly has an 'any' type.
+src/app/api/v1/products/route.ts(13,50): error TS7006: Parameter 'product' implicitly has an 'any' type.
+src/app/api/v1/products/route.ts(15,45): error TS7006: Parameter 'variant' implicitly has an 'any' type.
+src/components/Model3D.tsx(8,13): error TS2717: Subsequent property declarations must have the same type.  Property ''model-viewer'' must be of type 'DetailedHTMLProps<HTMLAttributes<HTMLElement> & { src?: string | undefined; poster?: string | undefined; alt?: string | undefined; loading?: "auto" | "lazy" | "eager" | undefined; ... 10 more ...; onLoad?: (() => void) | undefined; }, HTMLElement>', but here has type 'DetailedHTMLProps<HTMLAttributes<HTMLElement> & { src?: string | undefined; poster?: string | undefined; alt?: string | undefined; loading?: "auto" | "lazy" | "eager" | undefined; ... 7 more ...; onLoad?: (() => void) | undefined; }, HTMLElement>'.
+src/lib/prisma.ts(1,30): error TS2307: Cannot find module '@prisma/client' or its corresponding type declarations.
