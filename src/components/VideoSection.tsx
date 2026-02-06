@@ -59,10 +59,11 @@ export default function VideoSection() {
                         loop
                         muted
                         playsInline
-                        // Using a reliable placeholder video for now (Mixkit/Pexels)
-                        // In production this would be the gym shaker video
-                        src="/gym1.mp4"
-                    />
+                        preload="auto"
+                    >
+                        <source src="/gym1.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
 
                     {/* Overlays / Controls */}
                     <div className="absolute inset-0 bg-black/20 hover:bg-black/10 transition-colors flex items-center justify-center group pointer-events-none">

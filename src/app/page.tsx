@@ -18,7 +18,7 @@ export default function Home() {
       {/* Global Drawer */}
       <ProductDrawer />
 
-      <footer className="py-12 text-center text-sm text-zinc-500 border-t border-zinc-100 dark:border-zinc-800">
+      <footer className="relative z-30 py-12 text-center text-sm text-zinc-500 border-t border-zinc-100 dark:border-zinc-800 bg-white dark:bg-black">
         <p>&copy; 2026 RugXFIT. All rights reserved.</p>
       </footer>
     </main>

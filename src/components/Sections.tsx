@@ -62,7 +62,7 @@ export function CompareSection() {
     const { openProductDrawer } = useStore();
 
     return (
-        <section className="py-24 bg-zinc-50 dark:bg-zinc-950">
+        <section className="relative z-30 py-24 bg-zinc-50 dark:bg-zinc-950">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">Which RugXFIT gear is right for you?</h2>
@@ -73,7 +73,7 @@ export function CompareSection() {
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: true, margin: "-100px" }}
                         className="bg-white dark:bg-zinc-900 p-8 rounded-3xl shadow-lg border border-zinc-100 dark:border-zinc-800 flex flex-col items-center text-center hover:shadow-2xl transition-shadow duration-300"
                     >
                         <h3 className="text-2xl font-bold mb-2">RugXFIT Shaker</h3>
@@ -101,7 +101,7 @@ export function CompareSection() {
                     <motion.div
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: true, margin: "-100px" }}
                         className="bg-white dark:bg-zinc-900 p-8 rounded-3xl shadow-lg border border-zinc-100 dark:border-zinc-800 flex flex-col items-center text-center hover:shadow-2xl transition-shadow duration-300"
                     >
                         <h3 className="text-2xl font-bold mb-2">RugXFIT Wraps</h3>
